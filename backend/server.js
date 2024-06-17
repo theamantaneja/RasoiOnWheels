@@ -9,6 +9,11 @@ import orderRouter from './routes/orderRoute.js';
 
 
 const app = express();
+app.use(cors({
+    origin: ["https://rasoi-on-wheels.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
+}))
 const port = 4000;
 
 //middleware
