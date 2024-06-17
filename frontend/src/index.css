@@ -29,3 +29,9 @@ a{
     opacity: 100;
   }
 }
+
+@media (max-width: 750px){
+  .app{
+    margin: 20px;
+  }
+}
