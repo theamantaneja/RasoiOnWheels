@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Home from './pages/Home/Home'
 import Footer from './components/Footer/Footer'
 import Navbar from './components/Navbar/Navbar'
@@ -13,12 +13,19 @@ import Verify from './pages/Verify/Verify'
 
 const App = () => {
 
-  const [showLogin,setShowLogin] = useState(false);
+  const [showLogin,setShowLogin] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setShowLogin(false);
+    }
+  }, []);
 
   return (
     <>
     <ToastContainer/>
-    {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
+    {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
       <div className='app'>
         <Navbar setShowLogin={setShowLogin}/>
         <Routes>

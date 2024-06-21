@@ -6,7 +6,6 @@ import axios from "axios";
 
 const LoginPopup = ({ setShowLogin }) => {
   const { url, setToken } = useContext(StoreContext);
-
   const [currState, setCurrState] = useState("Login");
   const [data, setData] = useState({
     name: "",
@@ -42,6 +41,7 @@ const LoginPopup = ({ setShowLogin }) => {
         console.error("An error occurred while making the request:", error);
         alert("An error occurred. Please try again.");
     }
+
   };
 
   return (
